@@ -15,8 +15,6 @@ if(process.env.NODE_ENV !== 'production') {
 	githubClientSecret = process.env.GITHUB_CLIENT_SECRET
 }
 
-// Just Somthing to push to rebuild
-
 const GithubState = (props) => {
 	const initialState = {
 		users: [],
