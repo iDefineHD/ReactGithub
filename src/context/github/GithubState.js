@@ -7,13 +7,15 @@ import { SEARCH_USERS, GET_USER, CLEAR_USERS, GET_REPOS, SET_LOADING } from './t
 let githubClientID;
 let githubClientSecret;
 
-if(process.env.NODE_ENV !== 'production') {
-	githubClientID = process.env.REACT_APP_GITHUB_CLIENT_ID
-	githubClientSecret = process.env.REACT_APP_GITHUB_CLIENT_SECRET
-} else {
-	githubClientID = process.env.GITHUB_CLIENT_ID
-	githubClientSecret = process.env.GITHUB_CLIENT_SECRET
-}
+// if(process.env.NODE_ENV !== 'production') {
+// 	githubClientID = process.env.REACT_APP_GITHUB_CLIENT_ID
+// 	githubClientSecret = process.env.REACT_APP_GITHUB_CLIENT_SECRET
+// } else {
+// 	githubClientID = process.env.GITHUB_CLIENT_ID
+// 	githubClientSecret = process.env.GITHUB_CLIENT_SECRET
+// }
+
+// Netlify was being stupid, had added the variables, removed the local, and gunna just see if this works.
 
 const GithubState = (props) => {
 	const initialState = {
@@ -30,7 +32,7 @@ const GithubState = (props) => {
 	const searchUsers = async (text) => {
 		setLoading()
 		const res = await Axios.get(
-			`http://api.github.com/search/users?q=${text}&client_id=${githubClientID}&client_secret=${githubClientSecret}`,
+			`http://api.github.com/search/users?q=${text}&client_id=${process.env.GITHUB_CLIENT_ID}&client_secret=${process.env.GITHUB_CLIENT_SECRET}`,
 		)
 		dispatch({
 			type: SEARCH_USERS,
@@ -43,7 +45,7 @@ const GithubState = (props) => {
 			const getUser = async (username) => {
 				setLoading()
 				const res = await Axios.get(
-					`http://api.github.com/users/${username}?client_id=${githubClientID}&client_secret=${githubClientSecret}`,
+					`http://api.github.com/users/${username}?client_id=${process.env.GITHUB_CLIENT_ID}&client_secret=${process.env.GITHUB_CLIENT_SECRET}`,
 				)
 				dispatch({
 					type: GET_USER,
@@ -56,7 +58,7 @@ const GithubState = (props) => {
 	const getUserRepos = async (username) => {
 		setLoading()
 		const res = await Axios.get(
-			`http://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${githubClientID}&client_secret=${githubClientSecret}`,
+			`http://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${process.env.GITHUB_CLIENT_ID}&client_secret=${process.env.GITHUB_CLIENT_SECRET}`,
 		)
 		dispatch({
 			type: GET_REPOS,
