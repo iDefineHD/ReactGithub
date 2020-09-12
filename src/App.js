@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Navbar from './components/layout/Navbar'
 import User from './components/users/User'
 import Alert from './components/layout/Alert'
