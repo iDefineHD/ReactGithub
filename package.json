@@ -7,7 +7,7 @@
     "@testing-library/react": "11.0.4",
     "@testing-library/user-event": "12.1.6",
     "axios": "0.20.0",
-    "eslint": "7.9.0",
+    "eslint": "7.10.0",
     "fetch": "1.1.0",
     "global": "4.4.0",
     "netlify-cli": "2.64.1",
