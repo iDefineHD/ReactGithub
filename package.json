@@ -10,7 +10,7 @@
     "eslint": "7.14.0",
     "fetch": "1.1.0",
     "global": "4.4.0",
-    "netlify-cli": "2.69.2",
+    "netlify-cli": "2.69.3",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-router-dom": "5.2.0",
